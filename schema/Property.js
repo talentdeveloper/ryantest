@@ -8,6 +8,12 @@ exports = module.exports = function(app, mongoose) {
       email: { type: String, defaul: ''}
     },
     propertyType: { type: String, default: '' },
+    residentialUnit: { type: String, default: '' },
+    residentialContent: { type: String, default: '' },
+    residentialOther: { type: String, default: '' },
+    commercialContent: { type: String, default: '' },
+    commercialOther: { type: String, default: '' },
+    landBuild: { type: String, default: '' },
     submittedOn: { type: Date, default: Date.now },
     propertyAddress: { type: String, default: '' },
     propertyCity: { type: String, default: '' },
