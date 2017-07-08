@@ -62,11 +62,76 @@
                         <div class="form-group" ng-class="{'has-error': hasError(detailForm.propertyType)}">
                             <label class="col-md-3 control-label" for="propertyType">Property Type:</label>
                             <div class="col-md-5">
-                                <select id="notific8_life" class="form-control input-medium" ng-model="propertyDetail.propertyType">                                                      
-                                    <option value="residential">Residential</option>
-                                    <option value="commercial">Mortgage/Loan Professional</option>
-                                    <option value="land">Land</option>                                    
-                                </select>
+                                <div id="inputType">
+	                            	<select id="notific8_life" class="form-control input-medium" ng-model="propertyDetail.propertyType" style="margin-bottom: 15px"> 
+	                                	<option value=""></option>                                                     
+	                                    <option value="residential">Residential</option>
+	                                    <option value="commercial">Commercial</option>
+	                                    <option value="land">Land</option>                                    
+	                                </select>
+                            	</div>
+                            	<!-- Select Residential -->
+                                <div ng-show="propertyDetail.propertyType == 'residential'">
+                                	<div id="selectUnit">
+                                		<label>How Many Units?</label>
+		                                <select class="form-control" ng-model="propertyDetail.residentialUnit" style="width: 70px; margin-bottom: 10px">
+		                                	<option value="1">1</option>
+		                                	<option value="2">2</option>
+		                                	<option value="3">3</option>
+		                                	<option value="4">4</option>
+		                                </select>
+                                	</div>
+                                	<div ng-show="propertyDetail.residentialUnit == '1'">
+                                		<div id="selectUnitContent">
+	                                		<select class="form-control" ng-model="propertyDetail.residentialContent" style="width: 175px; margin-bottom: 10px">
+			                                	<option value="Cape">Cape</option>
+			                                	<option value="Colonial">Colonial</option>
+			                                	<option value="Condo/Townhouse">Condo/Townhouse</option>
+			                                	<option value="Detached">Detached</option>
+			                                	<option value="Ranch">Ranch</option>
+			                                	<option value="Bi-Level">Bi-Level</option>
+			                                	<option value="Duplex">Duplex</option>
+			                                	<option value="Triplex">Triplex</option>
+			                                	<option value="Victorian">Victorian</option>  
+			                                	<option value="Other">Other</option>                                                   
+			                                </select>
+                                		</div>
+                                		<div id="textOther" ng-show="propertyDetail.residentialContent == 'Other'">
+		                                	<input type="text" name="residentialOther" class="form-control" ng-model="propertyDetail.residentialOther" style="width: 175px;">
+		                                	<span class="help-block" ng-show="showError(detailForm.residentialOther, 'required')">This field is required</span>
+	                                	</div>
+                                	</div>
+                                </div>
+                                <!-- End Residential -->
+                                <!-- Select Commercial -->
+                                <div ng-show="propertyDetail.propertyType == 'commercial'">
+	                                <div id="selectContent">
+	                             		<select class="form-control" ng-model="propertyDetail.commercialContent" style="width: 175px; margin-bottom: 10px">
+			                               	<option value="Apt Complex">Apt Complex</option>
+			                               	<option value="Mixed Use">Mixed Use</option>
+			                               	<option value="Other">Other</option>                                                   
+		                               	</select>
+	                           		</div>
+	                           		<div id="textOther" ng-show="propertyDetail.commercialContent == 'Other'">
+	                                	<input type="text" name="commercialOther" class="form-control" ng-model="propertyDetail.commercialOther" style="width: 175px;">
+	                                	<span class="help-block" ng-show="showError(detailForm.commercialOther, 'required')">This field is required</span>
+                                	</div>
+                                </div>
+                                <!-- End Commercial -->
+                                <!-- Select Land -->
+                                <div ng-show="propertyDetail.propertyType == 'land'">
+                                	<label>Do you know if this property is build-able?</label>
+                                	<div class="input-group">
+                                		<input type="radio" ng-model="propertyDetail.landBuild" name="landBuild" value="Yes">&nbsp;&nbsp;Yes
+                                	</div>
+                                	<div class="input-group">
+                                		<input type="radio" ng-model="propertyDetail.landBuild" name="landBuild" value="No">&nbsp;&nbsp;No
+                                	</div>
+                                	<div class="input-group">
+                                		<input type="radio" ng-model="propertyDetail.landBuild" name="landBuild" value="Unknown">&nbsp;&nbsp;Unknown
+                                	</div>
+                                </div>
+                                <!-- End Land -->
                             </div>
                         </div>
 
