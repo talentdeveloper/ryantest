@@ -93,6 +93,12 @@ var property = {
           email: req.user.email         
         },
         propertyType: req.body.propertyType,
+        residentialUnit: req.body.residentialUnit,
+        residentialContent: req.body.residentialContent,
+        residentialOther: req.body.residentialOther,
+        commercialContent: req.body.commercialContent,
+        commercialOther: req.body.commercialOther,
+        landBuild: req.body.landBuild,
         submittedOn: req.body.submittedOn,
         propertyAddress: req.body.propertyAddress,
         propertyCity: req.body.propertyCity,
