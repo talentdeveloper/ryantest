@@ -42,6 +42,7 @@ angular.module('admin.properties.detail').controller('PropertiesDetailCtrl', ['$
     console.log(user);
     var submitDetailForm = function(){
       $scope.alerts.detail = [];
+      console.log($scope.propertyDetail);
       adminResource.updateProperty(propertyDetails._id, $scope.propertyDetail).then(function(result){
         if(result.success){
           $scope.user = result.user; //update $scope user model
@@ -67,8 +68,13 @@ angular.module('admin.properties.detail').controller('PropertiesDetailCtrl', ['$
       detail: [], identity: [], pass: []
     };
     $scope.propertyDetail = {
-
       propertyType: propertyDetails.propertyType,
+      residentialUnit: propertyDetails.residentialUnit,
+      residentialContent: propertyDetails.residentialContent,
+      residentialOther: propertyDetails.residentialOther,
+      commercialContent: propertyDetails.commercialContent,
+      commercialOther: propertyDetails.commercialOther,
+      landBuild: propertyDetails.landBuild,
       submittedOn: propertyDetails.submittedOn,
       propertyAddress: propertyDetails.propertyAddress,
       propertyCity: propertyDetails.propertyCity,
