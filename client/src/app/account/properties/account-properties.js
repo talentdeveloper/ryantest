@@ -27,7 +27,7 @@ angular.module('account.properties.list').config(['$routeProvider', 'securityAut
     });
 }]);
 
-
+// fff
 angular.module('account.properties.list').controller('AccountPropertyListCtrl', [ '$scope', '$location', '$log', 'security', 'utility', 'accountResource', 'propertyList',
   function($scope, $location, $log, security, utility, restResource, data){
     var user = data.user;
